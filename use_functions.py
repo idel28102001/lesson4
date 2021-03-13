@@ -1,53 +1,39 @@
 """
-МОДУЛЬ 3
-Программа "Личный счет"
-Описание работы программы:
-Пользователь запускает программу у него на счету 0
-Программа предлагает следующие варианты действий
-1. пополнить счет
-2. покупка
-3. история покупок
-4. выход
-
-1. пополнение счета
-при выборе этого пункта пользователю предлагается ввести сумму на сколько пополнить счет
-после того как пользователь вводит сумму она добавляется к счету
-снова попадаем в основное меню
-
-2. покупка
-при выборе этого пункта пользователю предлагается ввести сумму покупки
-если она больше количества денег на счете, то сообщаем что денег не хватает и переходим в основное меню
-если денег достаточно предлагаем пользователю ввести название покупки, например (еда)
-снимаем деньги со счета
-сохраняем покупку в историю
-выходим в основное меню
-
-3. история покупок
-выводим историю покупок пользователя (название и сумму)
-возвращаемся в основное меню
-
-4. выход
-выход из программы
-
-При выполнении задания можно пользоваться любыми средствами
-
-Для реализации основного меню можно использовать пример ниже или написать свой
+You should use terminal for that code
 """
-
+import os
+account = 0
+purchase_history = []
 while True:
-    print('1. пополнение счета')
-    print('2. покупка')
-    print('3. история покупок')
-    print('4. выход')
+    os.system('cls')
+    print('1. Account')
+    print('2. Purchase')
+    print('3. Purchase history')
+    print('4. Break')
 
-    choice = input('Выберите пункт меню')
+    choice = input('Select menu item: ')
     if choice == '1':
-        pass
+        os.system('cls')
+        account += int(input('How much money do you want to deposit into your account?: '))
+        continue
     elif choice == '2':
-        pass
+        os.system('cls')
+        price = int(input('How much does it cost?: '))
+        if price > account:
+            os.system('cls')
+            print('You do not have enough money to buy that merchandise: ')
+            input()
+            continue
+        merchandise = input('Name that merchandise ')
+        account -= price
+        purchase_history.append([merchandise, price])
+        continue
     elif choice == '3':
-        pass
+        os.system('cls')
+        print(*purchase_history)
+        input()
+        continue
     elif choice == '4':
         break
     else:
-        print('Неверный пункт меню')
+        print('Wrong choice')

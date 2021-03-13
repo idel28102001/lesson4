@@ -1,18 +1,10 @@
-"""
-МОДУЛЬ 2
-Программа из 2-го дз
-Сначала пользователь вводит год рождения Пушкина, когда отвечает верно вводит день рождения
-Можно использовать свой вариант программы из предыдущего дз, мой вариант реализован ниже
-Задание: переписать код используя как минимум 1 функцию
-"""
+def return_input(inp):
+    return int(inp)
 
-year = input('Ввведите год рождения А.С.Пушкина:')
-while year != '1799':
-    print("Не верно")
-    year = input('Ввведите год рождения А.С.Пушкина:')
 
-day = input('Ввведите день рождения Пушкин?')
-while day != '6':
-    print("Не верно")
-    day = input('В какой день июня родился Пушкин?')
-print('Верно')
+answer = None
+while answer != 1799:
+    answer = return_input(input('Когда родился А.С. Пушкин? -'))  # When A. S. Pushkin was born
+while answer != 6:
+    answer = return_input(input('А в какой день? -'))  # Could you tell me the day of the born
+print('Верно')  # That's right, keep up the good work
